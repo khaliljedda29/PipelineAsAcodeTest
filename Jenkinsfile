@@ -4,11 +4,20 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Build completed'
+        timeout(time: 5, unit: 'SECONDS') {
+    // some block
+      sh'sleep 10'
+        }
       }
     }
     stage('Test') {
       steps {
         echo 'Testing completed'
+      }
+    }
+    stage('Deploy') {
+      steps {
+        echo 'Deploying completed'
       }
     }
 
